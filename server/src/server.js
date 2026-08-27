@@ -1,16 +1,11 @@
 const express = require('express')
 const app = express()
 const cors = require('cors')
-const axios = require('axios')
+const stockRoutes = require('./routes/stockRoutes')
 
 app.use(cors())
 app.use(express.json())
 
-
-
-app.get('/api/stocks/:symbol', (req,res) =>{
-    const { symbol } = req.params
-})
-
+app.use('/api/stocks', stockRoutes)
 
 app.listen(5000, () => {console.log('Server listening')})
